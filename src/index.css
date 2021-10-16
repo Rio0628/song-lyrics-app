@@ -23,6 +23,8 @@ code {
   border: 1px solid black;
 } 
 
+/* -- MAIN SONG CONTAINER -- */
+
 .mainSongContainer {
   height: 65rem;
   width: 52rem;
@@ -30,6 +32,50 @@ code {
   max-width: 52rem;
   border-right: 1px solid black;
 }
+
+.searchbarContainer {
+  position: absolute;
+  top: 5rem;
+  left: 14.5rem;
+  height: 2.4rem;
+  width: 26rem;
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+.searchbar {
+  width: 18.7rem;
+  padding: 4px 9px;
+  /* background: #D5D6D7; */
+  border: 1px solid #D5D6D7;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.searchbar:focus {
+  outline: none;
+}
+
+.searchBtn {
+  width: 5.2rem;
+  text-align: center;
+  /* font-weight: 700; */
+  padding: 5px 8px;
+  background: #D5D6D7;
+  border-radius: 0px 15px 15px 0px;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  font-weight: 700;
+  background: #9A9A9A;
+}
+/* <div className='mainSongContainer'>
+
+          <div className='searchbarContainer'>
+            <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
+            <div className='searchBtn'>Search</div>
+          </div>
+         */
 
 .search-albumCntr {
   height: 65rem;
