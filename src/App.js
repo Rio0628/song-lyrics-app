@@ -8,18 +8,17 @@ class App extends React.Component {
       <div className="container">
         
         <div className='mainSongContainer'>
-
           <div className='searchbarContainer'>
             <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
             <div className='searchBtn'>Search</div>
           </div>
         
+          <MainSongCntr />
         </div>
 
         <div className='search-albumCntr'>
           <h1>Search - Album</h1>
         </div>
-        {/* <MainSongCntr /> */}
         {/* <IndSong /> */}
       </div>
     );

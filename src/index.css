@@ -69,13 +69,6 @@ code {
   font-weight: 700;
   background: #9A9A9A;
 }
-/* <div className='mainSongContainer'>
-
-          <div className='searchbarContainer'>
-            <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
-            <div className='searchBtn'>Search</div>
-          </div>
-         */
 
 .search-albumCntr {
   height: 65rem;
@@ -85,33 +78,46 @@ code {
   border: 1px solid red; 
 }
 
+/* -- MAIN SONG COMPONENT STYLES */
+
 .mainSongView {
   position: absolute;
-  left: 20rem;
+  top: 8.5rem;
+  left: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 20px 30px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .albumImg {
   position: relative;
-  height: 15rem;
-  width: 15rem;
-  left: 25%;
-  border: 1px solid red;
+  height: 14rem;
+  width: 14rem;
+  left: 27%;
+  /* border: 1px solid red; */
 }
 
 .mainSongName {
   position: relative;
-  left: 11.7rem;
-  width: 5.5rem;
+  top: 1rem;
+  width: 30rem;
+  font-size: 1.8rem;
+  text-align: center;
+  letter-spacing: 3px;
   padding: 2px 5px;
-  border: 1px solid black;
+  background: #FBFBFB;
+  /* border: 1px solid black; */
 }
 
 .otherInfoCntr {
-  position: relative;
-  bottom: .5rem;
+  position: absolute;
+  bottom: -2rem;
+  right: -6.5rem;
+  width: 45rem;
   display: flex;
+  font-size: 1.2rem;
   padding: 0px 10px;
   justify-content: space-between;
   border-bottom: 1px solid black;
@@ -119,26 +125,41 @@ code {
 
 .mainSongAlbum {
   position: relative;
-  top: 5px;
-  left: 1.5rem;
+  top: 15px;
+  left: 2rem;
+  width: 10rem;
+  font-weight: 600;
+  text-align: center;
   padding: 2px 5px;
-  outline: 1px solid blue;
+  /* outline:  1px solid blue; */
 }
 
 .mainSongDuration {
   position: relative;
-  top: 5px; 
-  right: 1.5rem;
-  padding: 2px 5px;
-  outline: 1px solid blue;
+  top: 15px; 
+  right: 3rem;
+  width: 4rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 2px 20px;
+  /* outline: 1px solid blue; */
 }
 
 .mainSongLyrics {
-  height: 15rem;
-  padding: 2px 5px;
+  position: absolute;
+  right: -5.5rem;
+  top: 24rem;
+  height: 30rem;
+  width: 42rem;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 10px 15px;
   border: 1px solid #3333;
   border-radius: 5px;
 }
+
+/* -- IND SONG COMPONENT STYLES -- */
 
 .indSongView {
   width: 15rem;
@@ -160,5 +181,5 @@ code {
 
 .durationSong {
   padding: 1px;
-  outline: 1px solid black;
+  outline: 1px  solid black;
 }

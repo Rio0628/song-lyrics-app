@@ -5,7 +5,7 @@ const MainSongCntr = () => {
     return (
         <div className='mainSongView'>
             <img className='albumImg' src={Album} alt='album cover'></img>
-            <p className='mainSongName'>Song Name</p>
+            <h2 className='mainSongName'>Song Name</h2>
             
             <div className='otherInfoCntr'>
                 <p className='mainSongAlbum'>Album</p>
