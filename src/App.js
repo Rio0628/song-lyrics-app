@@ -6,8 +6,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Mario</h1>
-        <MainSongCntr />
+        
+        <div className='mainSongContainer'>
+
+          <div className='searchbarContainer'>
+            <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
+            <div className='searchBtn'>Search</div>
+          </div>
+        
+        </div>
+
+        <div className='search-albumCntr'>
+          <h1>Search - Album</h1>
+        </div>
+        {/* <MainSongCntr /> */}
         {/* <IndSong /> */}
       </div>
     );

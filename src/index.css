@@ -15,13 +15,29 @@ code {
 }
 
 .container {
-  height: 50rem;
+  height: 65rem;
+  width: 75rem;
+  display: flex;
   font-family: 'Saira';
   margin: 2rem;
   border: 1px solid black;
 } 
 
-/* -- MAIN SONG CONTAINER STYLES */
+.mainSongContainer {
+  height: 65rem;
+  width: 52rem;
+  max-height: 65rem;
+  max-width: 52rem;
+  border-right: 1px solid black;
+}
+
+.search-albumCntr {
+  height: 65rem;
+  width: 23rem;
+  max-height: 65rem;
+  max-width: 23rem; 
+  border: 1px solid red; 
+}
 
 .mainSongView {
   position: absolute;
@@ -77,18 +93,6 @@ code {
   border: 1px solid #3333;
   border-radius: 5px;
 }
-/* div className='mainSongView'>
-            <img className='albumImg' src={Album} alt='album cover'></img>
-            <p className='mainSongName'>Song Name</p>
-            
-            <div className='otherInfoCntr'>
-                <p className='mainSongAlbum'>Album</p>
-                <p className='mainSongDuration'>3:43</p>
-            </div>
-
-            <h3 className='mainSongLyrics'>This is a dummy text for the lyrics of the dummy song</h3> */
-
-/* -- IND SONG STYLES -- */
 
 .indSongView {
   width: 15rem;
