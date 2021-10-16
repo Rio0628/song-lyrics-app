@@ -163,7 +163,7 @@ code {
 
 .indSongView {
   width: 15rem;
-  padding: 2px 1rem;
+  padding: 2px .5rem;
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -181,5 +181,41 @@ code {
 
 .durationSong {
   padding: 1px;
+  outline: 1px  solid black;
+}
+
+
+/* -- SEARCH SONG STYLES -- */
+
+.searchResultsCntr {
+  border: 1px solid blue;
+}
+
+.searchHeading {
+  position: relative;
+  left: 2rem;
+  width: 12rem;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 5px;
+  border: 1px solid red;
+  border-bottom: 1px solid black;
+}
+
+.indSearchSongView {
+  width: 15rem;
+  padding: 2px .5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.nameSearchSong {
+  padding: 1px 5px;
+  outline: 1px solid black;
+}
+
+.artistSearchSong {
+  padding: 1px 5px;
   outline: 1px  solid black;
 }
