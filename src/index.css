@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Inconsolata:wght@400;600;700&family=Roboto+Mono:wght@400;500;600;700&family=Saira:wght@400;600;700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,6 +15,100 @@ code {
 }
 
 .container {
+  height: 50rem;
+  font-family: 'Saira';
   margin: 2rem;
   border: 1px solid black;
 } 
+
+/* -- MAIN SONG CONTAINER STYLES */
+
+.mainSongView {
+  position: absolute;
+  left: 20rem;
+  padding: 20px 30px;
+  border: 1px solid black;
+}
+
+.albumImg {
+  position: relative;
+  height: 15rem;
+  width: 15rem;
+  left: 25%;
+  border: 1px solid red;
+}
+
+.mainSongName {
+  position: relative;
+  left: 11.7rem;
+  width: 5.5rem;
+  padding: 2px 5px;
+  border: 1px solid black;
+}
+
+.otherInfoCntr {
+  position: relative;
+  bottom: .5rem;
+  display: flex;
+  padding: 0px 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.mainSongAlbum {
+  position: relative;
+  top: 5px;
+  left: 1.5rem;
+  padding: 2px 5px;
+  outline: 1px solid blue;
+}
+
+.mainSongDuration {
+  position: relative;
+  top: 5px; 
+  right: 1.5rem;
+  padding: 2px 5px;
+  outline: 1px solid blue;
+}
+
+.mainSongLyrics {
+  height: 15rem;
+  padding: 2px 5px;
+  border: 1px solid #3333;
+  border-radius: 5px;
+}
+/* div className='mainSongView'>
+            <img className='albumImg' src={Album} alt='album cover'></img>
+            <p className='mainSongName'>Song Name</p>
+            
+            <div className='otherInfoCntr'>
+                <p className='mainSongAlbum'>Album</p>
+                <p className='mainSongDuration'>3:43</p>
+            </div>
+
+            <h3 className='mainSongLyrics'>This is a dummy text for the lyrics of the dummy song</h3> */
+
+/* -- IND SONG STYLES -- */
+
+.indSongView {
+  width: 15rem;
+  padding: 2px 1rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.numSong {
+  padding: 1px;
+  outline: 1px solid black;
+}
+
+.nameSong {
+  padding: 1px;
+  outline: 1px solid black;
+}
+
+.durationSong {
+  padding: 1px;
+  outline: 1px solid black;
+}
