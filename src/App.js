@@ -23,6 +23,9 @@ class App extends React.Component {
             <h3 className='searchHeading'>Search</h3>
             <div className='lineBreakSearch'></div>
             <IndSearch />
+            <IndSearch />
+            <IndSearch />
+            <IndSearch />
           </div>
         </div>
         {/* <IndSong /> */}
