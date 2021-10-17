@@ -164,41 +164,50 @@ code {
 
 .indSongView {
   position: relative;
-  top: 10rem;
-  width: 15rem;
+  left: -1px;
+  top: 1.2rem;
+  width: 22rem;
   padding: 2px .5rem;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border-bottom: 1px solid #4444;
+  cursor: pointer;
+}
+
+.indSongView:hover {
+  color: #3333;
 }
 
 .numSong {
-  padding: 1px;
-  outline: 1px solid black;
+  position: relative;
+  top: 15px;
+  left: 1rem;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px 10px;
+  /* outline: 1px solid black; */
 }
 
 .nameSong {
-  padding: 1px;
-  outline: 1px solid black;
+  position: relative;
+  top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px 30px;
+  /* outline: 1px solid black; */
 }
 
 .durationSong {
-  padding: 1px;
-  outline: 1px  solid black;
+  position: relative;
+  right: 1rem;
+  top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2px 10px;
+  /* outline: 1px  solid black; */
 }
 
 /* -- ALBUM SONG STYLES */
-
-
-/*    <div className='search-albumCntr'>
-
-          <div className='albumCntr'>
-            <img className='albumImgRdc'></img>
-            <p className='albumName'>Album #1</p>
-            <p className='artistName'>Artist</p>
-            <div className='lineBreakHeading'></div>
-            <IndSong />
-          </div> */
 
 .albumCntr {
   height: 65rem;
@@ -212,7 +221,6 @@ code {
   left: 5rem;
   height: 13.5rem;
   width: 13.5rem;
-  border: 1px solid red;
 }
 
 .albumName {
@@ -233,6 +241,16 @@ code {
   letter-spacing: 3px;
   text-align: center;
   /* border: 1px solid black; */
+}
+
+.indSongContainer {
+  position: relative;
+  top: 1.2rem;
+  left: 1px;
+  /* outline: 1px solid blue; */
+  width: 22.8rem;
+  height: 41.3rem;
+  overflow: scroll;
 }
 
 .lineBreakHeadingAlbm {
@@ -267,7 +285,7 @@ code {
   position: relative;
   left: -1px;
   height: 4rem; 
-  width: 21.8rem;
+  width: 22rem;
   padding: 2px .5rem;
   display: flex;
   justify-content: space-between;

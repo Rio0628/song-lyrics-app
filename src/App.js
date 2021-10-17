@@ -23,11 +23,21 @@ class App extends React.Component {
           {/* <h1>Search - Album</h1> */}
 
           <div className='albumCntr'>
-            <img className='albumImgRdc' src={Album}></img>
+            <img className='albumImgRdc' src={Album} alt='Album Cover'></img>
             <p className='albumName'>Album #1</p>
             <p className='artistName'>Artist</p>
             <div className='lineBreakHeadingAlbm'></div>
-            <IndSong />
+            <div className='indSongContainer'>
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+              <IndSong />
+            </div>
           </div>
 
           {/* <div className='searchResultsCntr'>
