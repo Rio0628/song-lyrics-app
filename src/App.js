@@ -9,20 +9,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        
+
         <div className='mainSongContainer'>
           <div className='searchbarContainer'>
             <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
             <div className='searchBtn'>Search</div>
           </div>
-        
+
           <MainSongCntr />
         </div>
 
         <div className='search-albumCntr'>
           {/* <h1>Search - Album</h1> */}
 
-          <div className='albumCntr'>
+          {/* <div className='albumCntr'>
             <img className='albumImgRdc' src={Album} alt='Album Cover'></img>
             <p className='albumName'>Album #1</p>
             <p className='artistName'>Artist</p>
@@ -38,22 +38,24 @@ class App extends React.Component {
               <IndSong />
               <IndSong />
             </div>
-          </div>
+          </div> */}
 
-          {/* <div className='searchResultsCntr'>
+          <div className='searchResultsCntr'>
             <h3 className='searchHeading'>Search</h3>
             <div className='lineBreakSearch'></div>
-            <IndSearch />
-            <IndSearch />
-            <IndSearch />
-            <IndSearch />
-          </div> */}
+            <div className='indSearchContainer'>
+              <IndSearch />
+              <IndSearch />
+              <IndSearch />
+              <IndSearch />
+            </div>
+          </div>
         </div>
         {/* <IndSong /> */}
       </div>
     );
   }
-  
+
 }
 
 export default App;
