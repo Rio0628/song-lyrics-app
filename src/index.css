@@ -35,7 +35,7 @@ code {
 
 .searchbarContainer {
   position: absolute;
-  top: 5rem;
+  top: 4rem;
   left: 14.5rem;
   height: 2.4rem;
   width: 26rem;
@@ -93,15 +93,16 @@ code {
 
 .albumImg {
   position: relative;
-  height: 14rem;
-  width: 14rem;
+  bottom: 2rem;
+  height: 17rem;
+  width: 17rem;
   left: 27%;
   /* border: 1px solid red; */
 }
 
 .mainSongName {
   position: relative;
-  top: 1rem;
+  top: -2rem;
   width: 30rem;
   font-size: 1.8rem;
   text-align: center;
@@ -113,7 +114,7 @@ code {
 
 .otherInfoCntr {
   position: absolute;
-  bottom: -2rem;
+  bottom: 2rem;
   right: -6.5rem;
   width: 45rem;
   display: flex;
@@ -162,6 +163,8 @@ code {
 /* -- IND SONG COMPONENT STYLES -- */
 
 .indSongView {
+  position: relative;
+  top: 10rem;
   width: 15rem;
   padding: 2px .5rem;
   display: flex;
@@ -184,6 +187,59 @@ code {
   outline: 1px  solid black;
 }
 
+/* -- ALBUM SONG STYLES */
+
+
+/*    <div className='search-albumCntr'>
+
+          <div className='albumCntr'>
+            <img className='albumImgRdc'></img>
+            <p className='albumName'>Album #1</p>
+            <p className='artistName'>Artist</p>
+            <div className='lineBreakHeading'></div>
+            <IndSong />
+          </div> */
+
+.albumCntr {
+  height: 65rem;
+  max-height: 64.9rem;
+  /* border: 1px solid green; */
+}
+
+.albumImgRdc {
+  position: relative;
+  top: 4rem;
+  left: 5rem;
+  height: 13.5rem;
+  width: 13.5rem;
+  border: 1px solid red;
+}
+
+.albumName {
+  position: relative;
+  top: 3.2rem;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-align: center;
+  /* border: 1px solid black;  */
+}
+
+.artistName {
+  position: relative;
+  top: 1.8rem;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+.lineBreakHeadingAlbm {
+  position: relative;
+  top: 1.2rem;
+  border-bottom: 1px solid black;
+}
 
 /* -- SEARCH SONG STYLES -- */
 
