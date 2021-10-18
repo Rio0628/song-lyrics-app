@@ -6,7 +6,39 @@ import Album from './images/exampleAlbumCover.jpg';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      indSongs: [
+        {song: '1', name: 'First Song', duration: '3:32'},
+        {song: '2', name: 'Second Song', duration: '3:53'},
+        {song: '3', name: 'Third Song', duration: '3:44'},
+        {song: '4', name: 'Fourth Song', duration: '3:43'},
+      ],
+      searchSongs: [
+        {name: 'First Song', artist: 'First Artist'},
+        {name: 'Second Song', artist: 'Second Artist'},
+        {name: 'Third Song', artist: 'Third Artist'},
+        {name: 'Fourth Song', artist: 'Fourth Artist'},
+      ],
+    }
+  }
+  
   render() {
+    let indSongChildren = [], indSongSearch = [];
+    
+    const onClick = (e) => {
+      console.log(e.target);
+    }
+
+    for (let i = 0; i < this.state.indSongs.length; i++) {
+      indSongChildren.push(<IndSong number={this.state.indSongs[i].song} name={this.state.indSongs[i].name} duration={this.state.indSongs[i].duration} key={'Song ' + [i]} onClick={onClick}/>);
+    }
+
+    for (let i = 0; i < this.state.searchSongs.length; i++) {
+      indSongSearch.push(<IndSearch name={this.state.searchSongs[i].name} artist={this.state.searchSongs[i].artist} key={"Song" + [i]} onClick={onClick}/>);
+    }
+    
     return (
       <div className="container">
 
@@ -28,15 +60,7 @@ class App extends React.Component {
             <p className='artistName'>Artist</p>
             <div className='lineBreakHeadingAlbm'></div>
             <div className='indSongContainer'>
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
-              <IndSong />
+              {indSongChildren}
             </div>
           </div> */}
 
@@ -44,14 +68,10 @@ class App extends React.Component {
             <h3 className='searchHeading'>Search</h3>
             <div className='lineBreakSearch'></div>
             <div className='indSearchContainer'>
-              <IndSearch />
-              <IndSearch />
-              <IndSearch />
-              <IndSearch />
+              {indSongSearch}
             </div>
           </div>
         </div>
-        {/* <IndSong /> */}
       </div>
     );
   }

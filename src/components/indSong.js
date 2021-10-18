@@ -1,11 +1,11 @@
 import React from 'react';
 
-const IndSong = () => {
+const IndSong = (props) => {
     return (
         <div className='indSongView'>
-           <p className='numSong'>1</p>
-           <p className='nameSong'>Song Name</p>
-           <p className='durationSong'>3:50</p> 
+           <p className='numSong'>{props.number}</p>
+           <p className='nameSong'>{props.name}</p>
+           <p className='durationSong'>{props.duration}</p> 
         </div>
     )
 }

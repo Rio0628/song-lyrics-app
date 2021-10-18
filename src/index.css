@@ -15,7 +15,7 @@ code {
 }
 
 .container {
-  height: 65rem;
+  height: 65.2rem;
   width: 75.5rem;
   display: flex;
   font-family: 'Saira';
@@ -128,7 +128,7 @@ code {
   border-bottom: 3px solid #BAADFF;
 }
 
-.mainSongAlbum {
+.mainSongArtist {
   position: relative;
   top: 20px;
   left: 2rem;
@@ -259,6 +259,7 @@ code {
   /* outline: 1px solid blue; */
   width: 23.3rem;
   height: 41.3rem;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 
@@ -282,17 +283,18 @@ code {
   top: 1px; 
   height: 55.6rem;
   width: 23.4rem;
+  overflow-x: hidden;
   overflow-y: scroll;
   /* outline: 1px solid red; */
 }
 
-::-webkit-scrollbar {
-  width: 15px;
+.indSearchContainer::-webkit-scrollbar, .indSongContainer::-webkit-scrollbar {
+  width: 12px;
   background: #233143;
   border-radius: 0px 0px 15px 15px;
 }
 
-::-webkit-scrollbar-thumb {
+.indSearchContainer::-webkit-scrollbar-thumb, .indSongContainer::-webkit-scrollbar-thumb {
   height: 2px;
   background: #161452;
   border-radius: 50px;

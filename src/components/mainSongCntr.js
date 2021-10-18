@@ -8,7 +8,7 @@ const MainSongCntr = () => {
             <h2 className='mainSongName'>Song Name</h2>
             
             <div className='otherInfoCntr'>
-                <p className='mainSongAlbum'>Album</p>
+                <p className='mainSongArtist'>Artist</p>
                 <p className='mainSongDuration'>3:43</p>
             </div>
 
