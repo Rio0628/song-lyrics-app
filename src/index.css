@@ -163,7 +163,7 @@ code {
   text-align: center;
   padding: 10px 15px;
   color: #F8FAF0;
-  border: 1px solid #D5D6D7;
+  border: 1px solid #7777;
   border-radius: 5px;
 }
 
@@ -193,6 +193,7 @@ code {
   font-size: 20px;
   font-weight: 600;
   padding: 2px 10px;
+  pointer-events: none;
   /* outline: 1px solid black; */
 }
 
@@ -202,6 +203,7 @@ code {
   font-size: 20px;
   font-weight: 600;
   padding: 2px 30px;
+  pointer-events: none;
   /* outline: 1px solid black; */
 }
 
@@ -212,6 +214,7 @@ code {
   font-size: 20px;
   font-weight: 600;
   padding: 2px 10px;
+  pointer-events: none;
   /* outline: 1px  solid black; */
 }
 
@@ -290,13 +293,13 @@ code {
 
 .indSearchContainer::-webkit-scrollbar, .indSongContainer::-webkit-scrollbar {
   width: 12px;
-  background: #233143;
+  background: linear-gradient(to top, #233143, #161452);
   border-radius: 0px 0px 15px 15px;
 }
 
 .indSearchContainer::-webkit-scrollbar-thumb, .indSongContainer::-webkit-scrollbar-thumb {
   height: 2px;
-  background: #161452;
+  background: #131249;
   border-radius: 50px;
 }
 
@@ -340,6 +343,7 @@ code {
   font-size: 20px;
   font-weight: 600;
   padding: 2px 10px;
+  pointer-events: none;
   /* background: #4444; */
   /* outline: 1px solid black; */
 }
@@ -353,6 +357,7 @@ code {
   font-size: 20px; 
   font-weight: 600;
   padding: 2px 10px;
+  pointer-events: none;
   /* background: #4444; */
   /* outline: 1px  solid black; */
 }

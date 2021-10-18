@@ -21,6 +21,7 @@ class App extends React.Component {
         {name: 'Third Song', artist: 'Third Artist'},
         {name: 'Fourth Song', artist: 'Fourth Artist'},
       ],
+      currentClickedSong: '',
     }
   }
   
@@ -28,7 +29,15 @@ class App extends React.Component {
     let indSongChildren = [], indSongSearch = [];
     
     const onClick = (e) => {
-      console.log(e.target);
+      console.log(e.target)
+      
+      if (e.target.className === 'indSongView') {
+        this.setState({ currentClickedSong: e.target.getAttribute('name') });      
+      }
+
+      if (e.target.className === 'indSearchSongView') {
+        this.setState({ currentClickedSong: e.target.getAttribute('name') });         
+      }
     }
 
     for (let i = 0; i < this.state.indSongs.length; i++) {
@@ -48,13 +57,13 @@ class App extends React.Component {
             <div className='searchBtn'>Search</div>
           </div>
 
-          <MainSongCntr />
+          <MainSongCntr name={this.state.currentClickedSong}/>
         </div>
 
         <div className='search-albumCntr'>
           {/* <h1>Search - Album</h1> */}
 
-          {/* <div className='albumCntr'>
+          <div className='albumCntr'>
             <img className='albumImgRdc' src={Album} alt='Album Cover'></img>
             <p className='albumName'>Album #1</p>
             <p className='artistName'>Artist</p>
@@ -62,15 +71,15 @@ class App extends React.Component {
             <div className='indSongContainer'>
               {indSongChildren}
             </div>
-          </div> */}
+          </div>
 
-          <div className='searchResultsCntr'>
+          {/* <div className='searchResultsCntr'>
             <h3 className='searchHeading'>Search</h3>
             <div className='lineBreakSearch'></div>
             <div className='indSearchContainer'>
               {indSongSearch}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );
