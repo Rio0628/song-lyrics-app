@@ -64,13 +64,15 @@ class App extends React.Component {
           "api_lyrics": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks/13536921/lyrics"
         },
       ],
+      searchTriggered: false,
     }
   }
   
   render() {
     let indSongChildren = [], indSongSearch = [];
     
-    console.log(this.state.testSongs[0].id_artist)
+    console.log(this.state.testSongs[0]);
+
     const onChange = (e) => {
       // console.log(e.target.value);
       if (e.target.className === 'searchbar') {
@@ -93,20 +95,30 @@ class App extends React.Component {
         let results = [];
         await Axios.get(`https://api.happi.dev/v1/music?q=${this.state.currentSearchValue}&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=0`).then(res => results = res.data.result);
         
+        
         this.setState({ searchResults: results });
+        this.setState({ searchTriggered: true});
         // Include the main search Axios API call in here with the search request of the onChange state
       }
     }
-
 
     for (let i = 0; i < this.state.indSongs.length; i++) {
       indSongChildren.push(<IndSong number={this.state.indSongs[i].song} name={this.state.indSongs[i].name} duration={this.state.indSongs[i].duration} key={'Song ' + [i]} onClick={onClick}/>);
     }
 
-    for (let i = 0; i < this.state.searchSongs.length; i++) {
-      indSongSearch.push(<IndSearch name={this.state.searchSongs[i].name} artist={this.state.searchSongs[i].artist} key={"Song" + [i]} onClick={onClick}/>);
+    // for (let i = 0; i < this.state.searchSongs.length; i++) {
+    //   indSongSearch.push(<IndSearch name={this.state.searchSongs[i].name} artist={this.state.searchSongs[i].artist} key={"Song" + [i]} onClick={onClick}/>);
+    // }
+
+    if (this.state.searchTriggered) {
+      for (let i = 0; i < this.state.searchResults.length; i++) {
+        indSongSearch.push(<IndSearch name={this.state.searchResults[i].track} track={this.state.searchResults[i].id_track} artist={this.state.searchResults[i].artist} artist_id={this.state.searchResults[i].id_artist} album={this.state.searchResults[i].album} album_id={this.state.searchResults[i].id_album} key={"Song" + [i]} onClick={onClick}/>);
+      }
+      console.log('mario');
     }
     
+    console.log(this.state.searchResults)
+
     return (
       <div className="container">
 
@@ -122,7 +134,7 @@ class App extends React.Component {
         <div className='search-albumCntr'>
           {/* <h1>Search - Album</h1> */}
 
-          <div className='albumCntr'>
+          {/* <div className='albumCntr'>
             <img className='albumImgRdc' src={Album} alt='Album Cover'></img>
             <p className='albumName'>Album #1</p>
             <p className='artistName'>Artist</p>
@@ -130,15 +142,15 @@ class App extends React.Component {
             <div className='indSongContainer'>
               {indSongChildren}
             </div>
-          </div>
+          </div> */}
 
-          {/* <div className='searchResultsCntr'>
+          <div className='searchResultsCntr'>
             <h3 className='searchHeading'>Search</h3>
             <div className='lineBreakSearch'></div>
             <div className='indSearchContainer'>
               {indSongSearch}
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     );
