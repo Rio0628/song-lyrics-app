@@ -23,15 +23,54 @@ class App extends React.Component {
         {name: 'Fourth Song', artist: 'Fourth Artist'},
       ],
       searchResults: [],
+      currentAlbum: [],
       currentSearchValue: '',
       currentClickedSong: '',
+      testSongs: [
+        {
+          "track": "SICKO MODE",
+          "id_track": 5322024,
+          "haslyrics": true,
+          "artist": "Travis Scott",
+          "id_artist": 6243,
+          "album": "ASTROWORLD",
+          "id_album": 348193,
+          "bpm": 155,
+          "lang": "en",
+          "cover": "https://api.happi.dev/v1/music/cover/348193",
+          "api_artist": "https://api.happi.dev/v1/music/artists/6243",
+          "api_albums": "https://api.happi.dev/v1/music/artists/6243/albums",
+          "api_album": "https://api.happi.dev/v1/music/artists/6243/albums/348193",
+          "api_tracks": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks",
+          "api_track": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks/5322024",
+          "api_lyrics": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks/5322024/lyrics"
+        },
+        {
+          "track": "SICKO MODE X 10",
+          "id_track": 13536921,
+          "haslyrics": false,
+          "artist": "Cosmic",
+          "id_artist": 102660,
+          "album": "SICKO MODE X 10",
+          "id_album": 1035160,
+          "bpm": 155,
+          "lang": "??",
+          "cover": "https://api.happi.dev/v1/music/cover/1035160",
+          "api_artist": "https://api.happi.dev/v1/music/artists/102660",
+          "api_albums": "https://api.happi.dev/v1/music/artists/102660/albums",
+          "api_album": "https://api.happi.dev/v1/music/artists/102660/albums/1035160",
+          "api_tracks": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks",
+          "api_track": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks/13536921",
+          "api_lyrics": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks/13536921/lyrics"
+        },
+      ],
     }
   }
   
   render() {
     let indSongChildren = [], indSongSearch = [];
     
-    
+    console.log(this.state.testSongs[0].id_artist)
     const onChange = (e) => {
       // console.log(e.target.value);
       if (e.target.className === 'searchbar') {

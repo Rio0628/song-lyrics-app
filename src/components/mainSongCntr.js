@@ -9,7 +9,7 @@ const MainSongCntr = (props) => {
             
             <div className='otherInfoCntr'>
                 <p className='mainSongArtist'>Artist</p>
-                <p className='mainSongDuration'>3:43</p>
+                <p className='mainSongAlbum'>Album</p>
             </div>
 
             <h3 className='mainSongLyrics'>This is a dummy text for the lyrics of the dummy song</h3>
