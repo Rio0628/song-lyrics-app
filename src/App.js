@@ -3,6 +3,7 @@ import IndSong from './components/IndSong.js';
 import IndSearch from './components/IndSearch.js';
 import MainSongCntr from './components/MainSongCntr.js';
 import Album from './images/exampleAlbumCover.jpg';
+import Axios from 'axios';
 
 
 class App extends React.Component {
@@ -21,13 +22,16 @@ class App extends React.Component {
         {name: 'Third Song', artist: 'Third Artist'},
         {name: 'Fourth Song', artist: 'Fourth Artist'},
       ],
+      searchResults: [],
       currentClickedSong: '',
     }
   }
   
   render() {
     let indSongChildren = [], indSongSearch = [];
-    
+      
+    Axios.get('https://api.happi.dev/v1/music?q=sicko%20mode&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=0').then(res => console.log(res));
+
     const onClick = (e) => {
       console.log(e.target)
       
