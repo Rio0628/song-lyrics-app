@@ -23,16 +23,23 @@ class App extends React.Component {
         {name: 'Fourth Song', artist: 'Fourth Artist'},
       ],
       searchResults: [],
+      currentSearchValue: '',
       currentClickedSong: '',
     }
   }
   
   render() {
     let indSongChildren = [], indSongSearch = [];
-      
-    Axios.get('https://api.happi.dev/v1/music?q=sicko%20mode&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=0').then(res => console.log(res));
+    
+    
+    const onChange = (e) => {
+      // console.log(e.target.value);
+      if (e.target.className === 'searchbar') {
+        this.setState({ currentSearchValue: e.target.value });
+      }
+    }
 
-    const onClick = (e) => {
+    const onClick = async (e) => {
       console.log(e.target)
       
       if (e.target.className === 'indSongView') {
@@ -42,7 +49,16 @@ class App extends React.Component {
       if (e.target.className === 'indSearchSongView') {
         this.setState({ currentClickedSong: e.target.getAttribute('name') });         
       }
+
+      if (e.target.className === 'searchBtn') {
+        let results = [];
+        await Axios.get(`https://api.happi.dev/v1/music?q=${this.state.currentSearchValue}&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=0`).then(res => results = res.data.result);
+        
+        this.setState({ searchResults: results });
+        // Include the main search Axios API call in here with the search request of the onChange state
+      }
     }
+
 
     for (let i = 0; i < this.state.indSongs.length; i++) {
       indSongChildren.push(<IndSong number={this.state.indSongs[i].song} name={this.state.indSongs[i].name} duration={this.state.indSongs[i].duration} key={'Song ' + [i]} onClick={onClick}/>);
@@ -57,8 +73,8 @@ class App extends React.Component {
 
         <div className='mainSongContainer'>
           <div className='searchbarContainer'>
-            <input className='searchbar' type='text' placeholder='Enter Song Name...'/>
-            <div className='searchBtn'>Search</div>
+            <input className='searchbar' type='text' placeholder='Enter Song Name...' onChange={onChange}/>
+            <div className='searchBtn' onClick={onClick}>Search</div>
           </div>
 
           <MainSongCntr name={this.state.currentClickedSong}/>
