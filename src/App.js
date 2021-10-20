@@ -69,9 +69,9 @@ class App extends React.Component {
   }
   
   render() {
-    let indSongChildren = [], indSongSearch = [];
+    let indSongChildren = [], indSongSearch = [], currentSong;
     
-    console.log(this.state.testSongs[0]);
+    // console.log(this.state.testSongs[0]);
 
     const onChange = (e) => {
       // console.log(e.target.value);
@@ -88,7 +88,18 @@ class App extends React.Component {
       }
 
       if (e.target.className === 'indSearchSongView') {
-        this.setState({ currentClickedSong: e.target.getAttribute('name') });         
+        let currentSong;
+        // this.setState({ currentClickedSong: e.target.getAttribute('name') });
+        // this.setState({ currentTrackId: e.target.getAttribute('id_track') });
+        // this.setState({ currentTrackId: e.target.getAttribute('id_artist') });
+        // this.setState({ currentTrackId: e.target.getAttribute('id_album') });
+
+        await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(song => console.log(song));
+
+        // https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums//${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa
+
+        // this.setState({ currentClickedSongArtist: currentSong.artist})/;
+        // this.setState({ currentClickedSongAlbum: currentSong.album});
       }
 
       if (e.target.className === 'searchBtn') {
@@ -101,7 +112,11 @@ class App extends React.Component {
         // Include the main search Axios API call in here with the search request of the onChange state
       }
     }
-
+    
+    console.log(this.state.searchResults)
+    console.log(this.state.currentTrackId)
+    // console.log(this.state.currentClickedSong)
+    
     for (let i = 0; i < this.state.indSongs.length; i++) {
       indSongChildren.push(<IndSong number={this.state.indSongs[i].song} name={this.state.indSongs[i].name} duration={this.state.indSongs[i].duration} key={'Song ' + [i]} onClick={onClick}/>);
     }
@@ -114,10 +129,7 @@ class App extends React.Component {
       for (let i = 0; i < this.state.searchResults.length; i++) {
         indSongSearch.push(<IndSearch name={this.state.searchResults[i].track} track={this.state.searchResults[i].id_track} artist={this.state.searchResults[i].artist} artist_id={this.state.searchResults[i].id_artist} album={this.state.searchResults[i].album} album_id={this.state.searchResults[i].id_album} key={"Song" + [i]} onClick={onClick}/>);
       }
-      console.log('mario');
     }
-    
-    console.log(this.state.searchResults)
 
     return (
       <div className="container">
@@ -128,7 +140,7 @@ class App extends React.Component {
             <div className='searchBtn' onClick={onClick}>Search</div>
           </div>
 
-          <MainSongCntr name={this.state.currentClickedSong}/>
+          <MainSongCntr name={this.state.currentClickedSong} artist={this.state.currentClickedSongArtist} album={this.state.currentClickedSongAlbum}/>
         </div>
 
         <div className='search-albumCntr'>

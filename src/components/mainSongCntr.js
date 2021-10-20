@@ -8,8 +8,8 @@ const MainSongCntr = (props) => {
             <h2 className='mainSongName'>{props.name}</h2>
             
             <div className='otherInfoCntr'>
-                <p className='mainSongArtist'>Artist</p>
-                <p className='mainSongAlbum'>Album</p>
+                <p className='mainSongArtist'>{props.artist}</p>
+                <p className='mainSongAlbum'>{props.album}</p>
             </div>
 
             <h3 className='mainSongLyrics'>This is a dummy text for the lyrics of the dummy song</h3>
