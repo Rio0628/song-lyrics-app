@@ -88,23 +88,19 @@ class App extends React.Component {
       }
 
       if (e.target.className === 'indSearchSongView') {
-        let currentSong;
-        // this.setState({ currentClickedSong: e.target.getAttribute('name') });
-        // this.setState({ currentTrackId: e.target.getAttribute('id_track') });
-        // this.setState({ currentTrackId: e.target.getAttribute('id_artist') });
-        // this.setState({ currentTrackId: e.target.getAttribute('id_album') });
+        let currentSongLyrics;
+        this.setState({ currentClickedSong: e.target.getAttribute('name') });
+        this.setState({ currentClickedSongArtist: e.target.getAttribute('artist') });
+        this.setState({ currentClickedSongAlbum: e.target.getAttribute('album') });
 
-        await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(song => console.log(song));
+        await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}/lyrics?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(song => currentSongLyrics = song.data.result.lyrics);
 
-        // https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums//${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa
-
-        // this.setState({ currentClickedSongArtist: currentSong.artist})/;
-        // this.setState({ currentClickedSongAlbum: currentSong.album});
+        this.setState({ currentClickedSongLyrics: currentSongLyrics});
       }
 
       if (e.target.className === 'searchBtn') {
         let results = [];
-        await Axios.get(`https://api.happi.dev/v1/music?q=${this.state.currentSearchValue}&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=0`).then(res => results = res.data.result);
+        await Axios.get(`https://api.happi.dev/v1/music?q=${this.state.currentSearchValue}&limit=10&apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa&type=&lyrics=1`).then(res => results = res.data.result);
         
         
         this.setState({ searchResults: results });
@@ -127,7 +123,7 @@ class App extends React.Component {
 
     if (this.state.searchTriggered) {
       for (let i = 0; i < this.state.searchResults.length; i++) {
-        indSongSearch.push(<IndSearch name={this.state.searchResults[i].track} track={this.state.searchResults[i].id_track} artist={this.state.searchResults[i].artist} artist_id={this.state.searchResults[i].id_artist} album={this.state.searchResults[i].album} album_id={this.state.searchResults[i].id_album} key={"Song" + [i]} onClick={onClick}/>);
+        indSongSearch.push(<IndSearch name={this.state.searchResults[i].track} track={this.state.searchResults[i].id_track} artist={this.state.searchResults[i].artist} artist_id={this.state.searchResults[i].id_artist} album={this.state.searchResults[i].album} album_id={this.state.searchResults[i].id_album} cover={this.state.searchResults[i].cover} key={"Song" + [i]} onClick={onClick}/>);
       }
     }
 
@@ -140,7 +136,7 @@ class App extends React.Component {
             <div className='searchBtn' onClick={onClick}>Search</div>
           </div>
 
-          <MainSongCntr name={this.state.currentClickedSong} artist={this.state.currentClickedSongArtist} album={this.state.currentClickedSongAlbum}/>
+          <MainSongCntr name={this.state.currentClickedSong} artist={this.state.currentClickedSongArtist} album={this.state.currentClickedSongAlbum} lyrics={this.state.currentClickedSongLyrics}/>
         </div>
 
         <div className='search-albumCntr'>

@@ -147,7 +147,7 @@ code {
   position: relative;
   top: 20px; 
   right: 3rem;
-  width: 4rem;
+  width: 10rem;
   font-size: 20px;
   font-weight: 600;
   text-align: center;
@@ -161,13 +161,14 @@ code {
   top: 24rem;
   height: 30rem;
   width: 42rem;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
+  font-size: 20px;
+  letter-spacing: 3px;
   text-align: center;
   padding: 10px 15px;
   color: #F8FAF0;
   border: 1px solid #7777;
   border-radius: 5px;
+  overflow-y: scroll;
 }
 
 /* -- IND SONG COMPONENT STYLES -- */
@@ -284,13 +285,13 @@ code {
   /* outline: 1px solid red; */
 }
 
-.indSearchContainer::-webkit-scrollbar, .indSongContainer::-webkit-scrollbar {
+.indSearchContainer::-webkit-scrollbar, .indSongContainer::-webkit-scrollbar, .mainSongLyrics::-webkit-scrollbar {
   width: 12px;
   background: linear-gradient(to top, #233143, #161452);
   border-radius: 0px 0px 15px 15px;
 }
 
-.indSearchContainer::-webkit-scrollbar-thumb, .indSongContainer::-webkit-scrollbar-thumb {
+.indSearchContainer::-webkit-scrollbar-thumb, .indSongContainer::-webkit-scrollbar-thumb, .mainSongLyrics::-webkit-scrollbar-thumb {
   height: 2px;
   background: #131249;
   border-radius: 50px;
