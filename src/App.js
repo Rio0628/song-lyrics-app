@@ -85,7 +85,19 @@ class App extends React.Component {
       console.log(e.target)
       
       if (e.target.className === 'indSongView') {
-        this.setState({ currentClickedSong: e.target.getAttribute('name') });      
+        let currentSongLyrics;
+
+        if (e.target.getAttribute('has_lyrics')) {
+          await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}/lyrics?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(song => currentSongLyrics = song.data.result.lyrics);
+        }
+        else { currentSongLyrics = 'Lyrics Not Available.' }
+
+        this.setState({ currentClickedSong: e.target.getAttribute('name') });
+        this.setState({ currentClickedSongArtist: e.target.getAttribute('artist') });
+        this.setState({ currentClickedSongAlbum: e.target.getAttribute('album') });
+        this.setState({ currentClickedSongCover: e.target.getAttribute('cover') });
+        this.setState({ currentClickedSongLyrics: currentSongLyrics});
+        
       }
 
       if (e.target.className === 'indSearchSongView') {
@@ -100,11 +112,11 @@ class App extends React.Component {
         this.setState({ currentClickedSongLyrics: currentSongLyrics});
 
         // Call the album api call to display the album of the current clicked song 
-        this.setState({ clickedSong: true });
-
+        
         await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(album => currentSongAlbum = album.data.result);
 
         this.setState({ currentAlbum: currentSongAlbum});
+        this.setState({ clickedSong: true });
       }
 
       if (e.target.className === 'searchBtn') {
@@ -119,7 +131,6 @@ class App extends React.Component {
     }
     
     console.log(this.state.searchResults)
-    console.log(this.state.currentTrackId)
     // console.log(this.state.currentClickedSong)
     
     // for (let i = 0; i < this.state.indSongs.length; i++) {
@@ -128,7 +139,7 @@ class App extends React.Component {
 
     if (this.state.clickedSong) {
       for (let i = 0; i < this.state.currentAlbum.length; i++) {
-        indSongChildren.push(<IndSong number={i + 1} name={this.state.currentAlbum.tracks[i].track} track={this.state.currentAlbum.tracks[i].id_track} artist={this.state.currentAlbum.artist} artist_id={this.state.currentAlbum.id_artist} album={this.state.currentAlbum.album} album_id={this.state.currentAlbum.id_album} cover={this.state.currentAlbum.cover} key={"Song" + [i]} onClick={onClick}/>);
+        indSongChildren.push(<IndSong number={i + 1} name={this.state.currentAlbum.tracks[i].track} track={this.state.currentAlbum.tracks[i].id_track} artist={this.state.currentAlbum.artist} artist_id={this.state.currentAlbum.id_artist} album={this.state.currentAlbum.album} album_id={this.state.currentAlbum.id_album} cover={this.state.currentAlbum.cover} has_lyrics={this.state.currentAlbum.tracks[i].haslyrics.toString()} key={"Song" + [i]} onClick={onClick}/>);
       }
     }
 
