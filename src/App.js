@@ -10,62 +10,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      indSongs: [
-        {song: '1', name: 'First Song', duration: '3:32'},
-        {song: '2', name: 'Second Song', duration: '3:53'},
-        {song: '3', name: 'Third Song', duration: '3:44'},
-        {song: '4', name: 'Fourth Song', duration: '3:43'},
-      ],
-      searchSongs: [
-        {name: 'First Song', artist: 'First Artist'},
-        {name: 'Second Song', artist: 'Second Artist'},
-        {name: 'Third Song', artist: 'Third Artist'},
-        {name: 'Fourth Song', artist: 'Fourth Artist'},
-      ],
       searchResults: [],
       currentAlbum: {},
       currentSearchValue: '',
       currentClickedSong: '',
-      testSongs: [
-        {
-          "track": "SICKO MODE",
-          "id_track": 5322024,
-          "haslyrics": true,
-          "artist": "Travis Scott",
-          "id_artist": 6243,
-          "album": "ASTROWORLD",
-          "id_album": 348193,
-          "bpm": 155,
-          "lang": "en",
-          "cover": "https://api.happi.dev/v1/music/cover/348193",
-          "api_artist": "https://api.happi.dev/v1/music/artists/6243",
-          "api_albums": "https://api.happi.dev/v1/music/artists/6243/albums",
-          "api_album": "https://api.happi.dev/v1/music/artists/6243/albums/348193",
-          "api_tracks": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks",
-          "api_track": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks/5322024",
-          "api_lyrics": "https://api.happi.dev/v1/music/artists/6243/albums/348193/tracks/5322024/lyrics"
-        },
-        {
-          "track": "SICKO MODE X 10",
-          "id_track": 13536921,
-          "haslyrics": false,
-          "artist": "Cosmic",
-          "id_artist": 102660,
-          "album": "SICKO MODE X 10",
-          "id_album": 1035160,
-          "bpm": 155,
-          "lang": "??",
-          "cover": "https://api.happi.dev/v1/music/cover/1035160",
-          "api_artist": "https://api.happi.dev/v1/music/artists/102660",
-          "api_albums": "https://api.happi.dev/v1/music/artists/102660/albums",
-          "api_album": "https://api.happi.dev/v1/music/artists/102660/albums/1035160",
-          "api_tracks": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks",
-          "api_track": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks/13536921",
-          "api_lyrics": "https://api.happi.dev/v1/music/artists/102660/albums/1035160/tracks/13536921/lyrics"
-        },
-      ],
       searchTriggered: false,
       clickedSong: false,
+      triggerMainSongCntr: false,
     }
   }
   
@@ -87,7 +38,7 @@ class App extends React.Component {
       if (e.target.className === 'indSongView') {
         let currentSongLyrics;
 
-        if (e.target.getAttribute('has_lyrics')) {
+        if (e.target.getAttribute('has_lyrics') === 'true') {
           await Axios.get(`https://api.happi.dev/v1/music/artists/${e.target.getAttribute('id_artist')}/albums/${e.target.getAttribute('id_album')}/tracks/${e.target.getAttribute('id_track')}/lyrics?apikey=9cc8abAVG5ajE1k2R03knZAiY4TJwnXd8QgfXpIknBhvl1PPcIfEfRfa`).then(song => currentSongLyrics = song.data.result.lyrics);
         }
         else { currentSongLyrics = 'Lyrics Not Available.' }
@@ -117,6 +68,7 @@ class App extends React.Component {
 
         this.setState({ currentAlbum: currentSongAlbum});
         this.setState({ clickedSong: true });
+        this.setState({ triggerMainSongCntr: true });
       }
 
       if (e.target.className === 'searchBtn') {
@@ -126,6 +78,7 @@ class App extends React.Component {
         
         this.setState({ searchResults: results });
         this.setState({ searchTriggered: true});
+        this.setState({ clickedSong: false });
         // Include the main search Axios API call in here with the search request of the onChange state
       }
     }
@@ -157,8 +110,12 @@ class App extends React.Component {
             <input className='searchbar' type='text' placeholder='Enter Song Name...' onChange={onChange}/>
             <div className='searchBtn' onClick={onClick}>Search</div>
           </div>
-
-          <MainSongCntr name={this.state.currentClickedSong} artist={this.state.currentClickedSongArtist} album={this.state.currentClickedSongAlbum} lyrics={this.state.currentClickedSongLyrics} cover={this.state.currentClickedSongCover}/>
+          {this.state.triggerMainSongCntr ? 
+            <MainSongCntr name={this.state.currentClickedSong} artist={this.state.currentClickedSongArtist} album={this.state.currentClickedSongAlbum} lyrics={this.state.currentClickedSongLyrics} cover={this.state.currentClickedSongCover}/>
+            : 
+            <h1 className='previewMessage'>Search Song to View Lyrics</h1>
+          }
+          
         </div>
 
         <div className='search-albumCntr'>

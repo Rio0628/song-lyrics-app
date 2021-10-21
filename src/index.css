@@ -25,6 +25,18 @@ code {
   background: linear-gradient(to top, #233143, #161452);
 } 
 
+.previewMessage {
+  position: relative;
+  top: 22rem;
+  left: 10rem;
+  height: 3rem;
+  width: 30rem;
+  font-size: 3rem;
+  letter-spacing: 10px;
+  text-align: center;
+  color: #D5D6D7;
+}
+
 /* -- MAIN SONG CONTAINER -- */
 
 .mainSongContainer {
@@ -210,7 +222,7 @@ code {
   top: 25px;
   right: 1rem;
   width: 12rem;
-  height: 2rem;
+  height: 1.8rem;
   font-size: 17px;
   font-weight: 600;
   text-align: right;
